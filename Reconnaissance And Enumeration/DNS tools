@@ -1,0 +1,207 @@
+ DNS-based tools like Nslookup, Host, and Dig to perform passive reconnaissance
+
+ # NSLOOKUP :
+
+  ┌──(kali㉿kali)-[~]
+└─$ nslookup oracle.org             
+Server:         8.8.8.8
+Address:        8.8.8.8#53
+
+Non-authoritative answer:
+Name:   oracle.org
+Address: 69.162.80.54
+
+                                                                                                                                                                                                                                   
+┌──(kali㉿kali)-[~]
+└─$ nslookup cisco.com 
+'Server:                8.8.8.8
+Address:        8.8.8.8#53
+
+Non-authoritative answer:
+Name:   cisco.com
+Address: 72.163.4.185
+Name:   cisco.com
+Address: 2001:420:1101:1::185
+
+                                                                                                                                                                                                                                   
+┌──(kali㉿kali)-[~]
+└─$ nslookup exploit-db.com
+Server:         8.8.8.8
+Address:        8.8.8.8#53
+
+Non-authoritative answer:
+Name:   exploit-db.com
+Address: 192.124.249.13
+
+
+#  DIG :
+                                                                                                                                                              
+┌──(kali㉿kali)-[~]
+└─$ dig cisco.com           
+
+; <<>> DiG 9.20.20-1-Debian <<>> cisco.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 9423
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;cisco.com.                     IN      A
+
+;; ANSWER SECTION:
+cisco.com.              1141    IN      A       72.163.4.185
+
+;; Query time: 20 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8) (UDP)
+;; WHEN: Thu Apr 02 08:14:57 EDT 2026
+;; MSG SIZE  rcvd: 54
+
+                                                                                                                                                                                                                                   
+┌──(kali㉿kali)-[~]
+└─$ dig store.h4cker.org
+
+; <<>> DiG 9.20.20-1-Debian <<>> store.h4cker.org
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 24786
+;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;store.h4cker.org.              IN      A
+
+;; ANSWER SECTION:
+store.h4cker.org.       3600    IN      CNAME   pentestplus.github.io.
+pentestplus.github.io.  3600    IN      A       185.199.111.153
+pentestplus.github.io.  3600    IN      A       185.199.110.153
+pentestplus.github.io.  3600    IN      A       185.199.108.153
+pentestplus.github.io.  3600    IN      A       185.199.109.153
+
+;; Query time: 96 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8) (UDP)
+;; WHEN: Thu Apr 02 08:15:18 EDT 2026
+;; MSG SIZE  rcvd: 144
+
+
+# WHOIS:
+
+┌──(kali㉿kali)-[~]
+└─$ whois store.h4cker.org
+Malformed request.
+>>> Last update of WHOIS database: 2026-04-02T12:17:03Z <<<
+
+Terms of Use: Access to Public Interest Registry WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the Public Interest Registry registry database. The data in this record is provided by Public Interest Registry for informational purposes only, and Public Interest Registry does not guarantee its accuracy. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Identity Digital except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Public Interest Registry reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.  The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+                                                                                                                                                                                                                                   
+┌──(kali㉿kali)-[~]
+└─$ whois oracle          
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+domain:       ORACLE
+
+organisation: Oracle Corporation
+address:      500 Oracle Parkway
+address:      M/S 501ip3
+address:      Redwood Shores CA 94065
+address:      United States of America (the)
+
+contact:      administrative
+name:         Chris Niemi
+organisation: Markmonitor Inc.
+address:      1120 S. Rackham Way, Suite 300
+address:      Meridian ID 83642
+address:      United States of America (the)
+phone:        +1.208-389-5740
+e-mail:       gtldservices@markmonitor.com
+
+contact:      technical
+name:         Howard Eland, Senior Director, DNS Infrastructure Group
+organisation: Identity Digital Inc.
+address:      10500 NE 8th Street, Suite 750
+address:      Bellevue WA 98004
+address:      United States of America (the)
+phone:        +1.425.298.2200
+fax-no:       +1.425.671.0020
+e-mail:       rzmtechcontact@identity.digital
+
+nserver:      A0.NIC.ORACLE 2a01:8840:52:0:0:0:0:25 65.22.84.25
+nserver:      A2.NIC.ORACLE 2a01:8840:55:0:0:0:0:25 65.22.87.25
+nserver:      B0.NIC.ORACLE 2a01:8840:53:0:0:0:0:25 65.22.85.25
+nserver:      C0.NIC.ORACLE 2a01:8840:54:0:0:0:0:25 65.22.86.25
+ds-rdata:     6291 8 2 9f74eccb6080a089661309a8ae8f82146d0ee4cc7ca96f01f62ae47f76368f2a
+ds-rdata:     51169 8 2 43a2fd7b6df137824c6ee5b145ad5fa8664600165ef0c9772b1d286bcda63873
+
+whois:        whois.nic.oracle
+
+status:       ACTIVE
+remarks:      Registration information: 
+
+created:      2015-01-15
+changed:      2024-02-09
+source:       IANA
+
+                                                                                                                                                                                                                                   
+┌──(kali㉿kali)-[~]
+└─$ whois pwc   
+% IANA WHOIS server
+% for more information on IANA, visit http://www.iana.org
+% This query returned 1 object
+
+domain:       PWC
+
+organisation: PricewaterhouseCoopers LLP
+address:      1 Embankment Place
+address:      London WC2N 6RH
+address:      United Kingdom of Great Britain and Northern Ireland (the)
+
+contact:      administrative
+name:         Head of Online
+organisation: PricewaterhouseCoopers LLP
+address:      1 Embankment Place
+address:      London WC2N 6RH
+address:      United Kingdom of Great Britain and Northern Ireland (the)
+phone:        +44 (0)20 7583 5000
+fax-no:       +44 (0)20 7822 4652
+e-mail:       ngtld-pwc@cscglobal.com
+
+contact:      technical
+name:         Senior Director, DNS Infrastructure Group
+organisation: Afilias
+address:      300 Welsh Road
+address:      Building 3, Suite 105
+address:      Horsham PA 19044
+address:      United States of America (the)
+phone:        +1 215.706.5700
+fax-no:       +1 215.706.5701
+e-mail:       tld-tech-poc@afilias.info
+
+nserver:      A0.NIC.PWC 2a01:8840:4e:0:0:0:0:9 65.22.80.9
+nserver:      A2.NIC.PWC 2a01:8840:51:0:0:0:0:9 65.22.83.9
+nserver:      B0.NIC.PWC 2a01:8840:4f:0:0:0:0:9 65.22.81.9
+nserver:      C0.NIC.PWC 2a01:8840:50:0:0:0:0:9 65.22.82.9
+ds-rdata:     50191 8 2 53a702c1bc2e7246d8027839bc8c43ecb48a28139d2ecbc0350e4c6ca3bc623a
+
+whois:        whois.nic.pwc
+
+status:       ACTIVE
+remarks:      Registration information: http://pwc.com
+
+created:      2016-01-15
+changed:      2023-08-11
+source:       IANA
+
+
+# ExifTool
+
+ExifTool is a popular tool for extracting EXIF information from images. EXIF is a standard that defines the formats for images, sound, and ancillary tags used by digital equipment such as digital cameras, mobile phones, and tablets
+
+                                                                                              
+┌──(kali㉿kali)-[~]
+└─$ exif img_src.png/img/jpg whatever it can  evolve the details of the image 
+
+
+
