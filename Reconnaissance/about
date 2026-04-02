@@ -1,0 +1,15 @@
+# Reconnaissance is INFORMATION GATHERING
+
+# TWO TYPES 
+1.ACTIVE
+2.PASSIVE 
+
+PASSIVE Reconnaissance :
+
+Passive reconnaissance involves attempting to gather information about a victim by using public information and records but not using any active tools like scanners or sending any packets to the victim. The industry often refers to publicly available information as open-source intelligence (OSINT).
+
+ACTIVE Reconnaissance :
+
+Active reconnaissance is the process of directly interacting with a target system to gather detailed information about its vulnerabilities, services, and configuration.
+
+Active reconnaissance is a critical phase in cybersecurity, particularly in penetration testing and ethical hacking. Unlike passive reconnaissance, which collects information without alerting the target, active reconnaissance involves direct engagement with the target system or network to obtain actionable intelligence. This interaction can reveal real-time data about open ports, running services, software versions, and potential security weaknesses
